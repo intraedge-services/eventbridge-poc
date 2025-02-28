@@ -17,4 +17,6 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
 * AWS_PROFILE=intraedge-training
 * aws sso login --profile $AWS_PROFILE
+
+## Deploy the CDK Stack
 * cdk deploy --profile intraedge-training
