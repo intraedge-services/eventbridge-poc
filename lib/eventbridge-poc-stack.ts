@@ -59,6 +59,7 @@ export class EventbridgePocStack extends cdk.Stack {
       handler: "handler",
       environment: {
         EVENT_BUS_NAME: centralIntegrationEventBus.eventBusName,
+        AWS_REGION: 'us-east-2'
       },
     });
 

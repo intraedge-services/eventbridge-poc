@@ -1,6 +1,6 @@
 import { EventBridgeClient, PutEventsCommand } from "@aws-sdk/client-eventbridge";
 
-const client = new EventBridgeClient({ region: 'us-east-2' });
+const client = new EventBridgeClient({ region: process.env.AWS_REGION });
 
 export const handler = async (event: any) => {
   console.log("Received event:", JSON.stringify(event));
