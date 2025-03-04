@@ -6,6 +6,7 @@ import { Runtime } from 'aws-cdk-lib/aws-lambda';
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import * as eventschemas  from 'aws-cdk-lib/aws-eventschemas';
 import { Construct } from 'constructs';
+import  MyEventSchema  from './schemas/my-event.json'
 
 export class EventbridgePocStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -28,15 +29,7 @@ export class EventbridgePocStack extends cdk.Stack {
         paths: {},
         components: {
           schemas: {
-            MyEventDetail: {
-              type: "object",
-              properties: {
-                userId: { type: "string" },
-                action: { type: "string" },
-                timestamp: { type: "string", format: "date-time" },
-              },
-              required: ["userId", "action", "timestamp"],
-            },
+            MyEventDetail: MyEventSchema,
           },
         },
       }),
@@ -58,8 +51,7 @@ export class EventbridgePocStack extends cdk.Stack {
       entry: "lib/lambda-handler/publisher.ts",
       handler: "handler",
       environment: {
-        EVENT_BUS_NAME: centralIntegrationEventBus.eventBusName,
-        AWS_REGION: 'us-east-2'
+        EVENT_BUS_NAME: centralIntegrationEventBus.eventBusName
       },
     });
 
