@@ -2,9 +2,14 @@ import * as cdk from 'aws-cdk-lib';
 import * as events from 'aws-cdk-lib/aws-events';
 import * as targets from "aws-cdk-lib/aws-events-targets";
 import * as apigateway from 'aws-cdk-lib/aws-apigateway';
+import * as eventschemas  from 'aws-cdk-lib/aws-eventschemas';
+import * as logs from 'aws-cdk-lib/aws-logs';
+import * as sns from 'aws-cdk-lib/aws-sns';
+import * as subs from 'aws-cdk-lib/aws-sns-subscriptions';
+import * as cloudwatch from 'aws-cdk-lib/aws-cloudwatch';
+import * as cloudwatch_actions from 'aws-cdk-lib/aws-cloudwatch-actions';
 import { Runtime } from 'aws-cdk-lib/aws-lambda';
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
-import * as eventschemas  from 'aws-cdk-lib/aws-eventschemas';
 import { Construct } from 'constructs';
 import  MyEventSchema  from './schemas/my-event.json'
 
@@ -44,7 +49,6 @@ export class EventbridgePocStack extends cdk.Stack {
       }
     );    
 
-
     //  Publisher Lambda (Sends Events to EventBridge)
     const publisherLambda = new NodejsFunction(this, "PublisherLambda", {
       runtime: Runtime.NODEJS_18_X,
@@ -54,7 +58,6 @@ export class EventbridgePocStack extends cdk.Stack {
         EVENT_BUS_NAME: centralIntegrationEventBus.eventBusName
       },
     });
-
 
     // Create API Gateway to trigger publisherLambda
     const api = new apigateway.RestApi(this, "EventPublisherApi", {
@@ -66,7 +69,6 @@ export class EventbridgePocStack extends cdk.Stack {
 
     // Grant permissions for Lambda to put events in EventBridge
     centralIntegrationEventBus.grantPutEventsTo(publisherLambda);
-
 
     //  Consumer Lambda (Listens for Events from EventBridge)
     const consumerLambda = new NodejsFunction(this, "ConsumerLambda", {
@@ -89,6 +91,33 @@ export class EventbridgePocStack extends cdk.Stack {
     
     });
 
+    // CloudWatch Metric Filter for Failed Events
+    new logs.MetricFilter(this, "ConsumerLambdaFailureMetricFilter", {
+      logGroup: consumerLambda.logGroup,
+      metricNamespace: "LambdaErrors",
+      metricName: "ConsumerLambdaErrors",
+      filterPattern: logs.FilterPattern.anyTerm("ERROR", "Error", "error"),
+      metricValue: "1",
+    });
+
+     // SNS Topic for Failure Alerts
+     const snsTopic = new sns.Topic(this, "EventBridgeFailureAlerts", {
+      displayName: "EventBridge Failure Alerts",
+    });
+
+    // Subscribe an email to the SNS Topic
+    snsTopic.addSubscription(new subs.EmailSubscription("sumittest@yopmail.com"));
+
+    // CloudWatch Alarm for EventBridge Failures
+    const lambdaFailureAlarm = new cloudwatch.Alarm(this, "EventBridgeFailureAlarm", {
+      metric: consumerLambda.metricErrors(),
+      threshold: 1,
+      evaluationPeriods: 1
+    });
+    
+
+    // Add SNS notification to the alarm
+    lambdaFailureAlarm.addAlarmAction(new cloudwatch_actions.SnsAction(snsTopic));
 
   }
 }
