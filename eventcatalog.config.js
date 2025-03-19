@@ -36,7 +36,19 @@ export default {
         licenseKey: '5WIW-ILKT-B8NL-5SWW-7LFT-798I',
         region: 'us-east-2',
         registryName: 'my-schema-registry',
-     
+        domain: { id: 'eventbridge', name: 'EventBridge Integration', version: '1.0.0' },
+        services: [
+          {
+            id: 'Publisher Service',
+            version: '1.0.0',
+            sends: [{ detailType: 'UserAction' }],
+          },
+          {
+            id: 'Consumer Service',
+            version: '1.0.0',
+            receives: [{ source: 'custom.app'}],
+          }
+        ]
       },
     ],
   ],

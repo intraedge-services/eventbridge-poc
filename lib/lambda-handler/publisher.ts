@@ -18,7 +18,13 @@ export const handler = async (event: any) => {
     const eventDetail = {
       Source: "custom.app",
       DetailType: "UserAction",
-      Detail: eventBody,
+      Detail: {
+        "detail-type":"UserAction",
+        "source":"custom.app",
+        "userId": "12345",
+        "action": "LOGIN",
+        "timestamp": "2024-02-27T12:34:56Z"
+      },
       EventBusName: eventBusName,
     };
 

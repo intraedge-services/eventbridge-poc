@@ -1,9 +1,11 @@
 {
     "type": "object",
     "properties": {
+      "detail-type": { "type": "string" },
+      "source": { "type": "string" },
       "userId": { "type": "string" },
       "action": { "type": "string" },
       "timestamp": { "type": "string", "format": "date-time" }
     },
-    "required": ["userId", "action", "timestamp"]
+    "required": ["detail-type", "source","userId", "action", "timestamp"]
 }
