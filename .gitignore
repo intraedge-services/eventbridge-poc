@@ -3,6 +3,9 @@
 !eventcatalog.config.js
 *.d.ts
 node_modules
+dist
+.eventcatalog-core
+.env
 
 # CDK asset staging directory
 .cdk.staging

@@ -24,3 +24,4 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 ## Generate event eventcatalog
 AWS_PROFILE=intraedge-training npm run generate
 npm run dev
+

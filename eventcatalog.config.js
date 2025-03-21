@@ -1,5 +1,6 @@
 import path from 'path';
 import url from 'url';
+import 'dotenv/config'
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
@@ -33,7 +34,7 @@ export default {
     [
       '@eventcatalog/generator-eventbridge',
       {
-        licenseKey: '5WIW-ILKT-B8NL-5SWW-7LFT-798I',
+        licenseKey: process.env.EVENTCATALOG_LICENSE_KEY_EVENTBRIDGE,
         region: 'us-east-2',
         registryName: 'my-schema-registry',
         domain: { id: 'eventbridge', name: 'EventBridge Integration', version: '1.0.0' },
@@ -41,7 +42,7 @@ export default {
           {
             id: 'Publisher Service',
             version: '1.0.0',
-            sends: [{ detailType: 'UserAction' }],
+            sends: [{ source: 'custom.app' }],
           },
           {
             id: 'Consumer Service',
