@@ -10,7 +10,7 @@ export default {
   title: 'EventBridge POC',
   tagline: 'Event-driven architecture with AWS EventBridge',
   organizationName: 'OurLogix',
-  homepageLink: 'https://eventcatalog.dev/',
+  homepageLink: 'https://intraedge-services.github.io/eventbridge-poc/',
   landingPage: '',
   editUrl: 'https://github.com/boyney123/eventcatalog-demo/edit/master',
   // By default set to false, add true to get urls ending in /
