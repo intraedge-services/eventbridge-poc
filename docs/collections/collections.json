@@ -50,13 +50,13 @@
     }
   ],
   "entries": {
-    "file:///users/admin/desktop/suretreat-work/suretreat-project-code/eventbridge-poc/node_modules/@stoplight/markdown-viewer/node_modules/vfile/changelog.md": "changelogs",
-    "file:///users/admin/desktop/suretreat-work/suretreat-project-code/eventbridge-poc/node_modules/hast-util-raw/node_modules/vfile/changelog.md": "changelogs",
-    "file:///users/admin/desktop/suretreat-work/suretreat-project-code/eventbridge-poc/node_modules/zod-to-json-schema/changelog.md": "changelogs",
-    "file:///users/admin/desktop/suretreat-work/suretreat-project-code/eventbridge-poc/node_modules/@stoplight/markdown/node_modules/vfile/changelog.md": "changelogs",
     "file:///users/admin/desktop/suretreat-work/suretreat-project-code/eventbridge-poc/node_modules/deepmerge/changelog.md": "changelogs",
+    "file:///users/admin/desktop/suretreat-work/suretreat-project-code/eventbridge-poc/node_modules/hast-util-raw/node_modules/vfile/changelog.md": "changelogs",
+    "file:///users/admin/desktop/suretreat-work/suretreat-project-code/eventbridge-poc/node_modules/@stoplight/markdown/node_modules/vfile/changelog.md": "changelogs",
+    "file:///users/admin/desktop/suretreat-work/suretreat-project-code/eventbridge-poc/node_modules/zod-to-json-schema/changelog.md": "changelogs",
+    "file:///users/admin/desktop/suretreat-work/suretreat-project-code/eventbridge-poc/node_modules/@stoplight/markdown-viewer/node_modules/vfile/changelog.md": "changelogs",
     "file:///users/admin/desktop/suretreat-work/suretreat-project-code/eventbridge-poc/domains/eventbridge/index.mdx": "domains",
-    "file:///users/admin/desktop/suretreat-work/suretreat-project-code/eventbridge-poc/domains/eventbridge/services/consumer%20service/index.mdx": "services",
-    "file:///users/admin/desktop/suretreat-work/suretreat-project-code/eventbridge-poc/domains/eventbridge/services/publisher%20service/index.mdx": "services"
+    "file:///users/admin/desktop/suretreat-work/suretreat-project-code/eventbridge-poc/domains/eventbridge/services/publisher%20service/index.mdx": "services",
+    "file:///users/admin/desktop/suretreat-work/suretreat-project-code/eventbridge-poc/domains/eventbridge/services/consumer%20service/index.mdx": "services"
   }
 }

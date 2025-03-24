@@ -10,14 +10,14 @@ export default {
   title: 'EventBridge POC',
   tagline: 'Event-driven architecture with AWS EventBridge',
   organizationName: 'OurLogix',
-  homepageLink: 'https://intraedge-services.github.io/',
+  homepageLink: 'https://intraedge-services.github.io/eventbridge-poc/',
   landingPage: '',
   editUrl: 'https://github.com/boyney123/eventcatalog-demo/edit/master',
   // By default set to false, add true to get urls ending in /
-  trailingSlash: true,
+  trailingSlash: false,
   // Change to make the base url of the site different, by default https://{website}.com/docs,
   // changing to /company would be https://{website}.com/company/docs,
-  base: '/eventbridge-poc',
+  base: '/eventbridge-poc/',
   // Customize the logo, add your logo to public/ folder
   logo: {
     alt: 'EventCatalog Logo',
