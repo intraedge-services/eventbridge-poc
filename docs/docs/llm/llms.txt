@@ -12,7 +12,7 @@
 
 
 ## Services
-- [Publisher Service - Publisher Service - 1.0.0](https://intraedge-services.github.io/docs/services/Publisher Service/1.0.0.mdx) - undefined- [Consumer Service - Consumer Service - 1.0.0](https://intraedge-services.github.io/docs/services/Consumer Service/1.0.0.mdx) - undefined
+- [Consumer Service - Consumer Service - 1.0.0](https://intraedge-services.github.io/docs/services/Consumer Service/1.0.0.mdx) - undefined- [Publisher Service - Publisher Service - 1.0.0](https://intraedge-services.github.io/docs/services/Publisher Service/1.0.0.mdx) - undefined
 
 ## Domains
 - [EventBridge Integration - eventbridge - 1.0.0](https://intraedge-services.github.io/docs/domains/eventbridge/1.0.0.mdx) - undefined
